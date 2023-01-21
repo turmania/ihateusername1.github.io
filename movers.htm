@@ -12,33 +12,34 @@
 
     $(document).ready(foc);
     function foc() {
-
-        $('#collection-63bddf8754bcf125af7b8518').empty();
-
-
-        const iframe0 = document.createElement("iframe");
+ 
+     const iframe0 = document.createElement("iframe");
         iframe0.id = 'calendarframe';
         iframe0.width = '100%';
         iframe0.height = '750px';
         iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
         document.body.appendChild(iframe0);
         $('#calendarframe').hide()
+     
+      const iframe1 = document.createElement("iframe");
+        iframe1.id = 'addmoverframe';
+        iframe1.width = '100%';
+        iframe1.height = '750px';
+        iframe1.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
+        document.body.appendChild(iframe1);
+        $('#calendarframe').hide()
+        
         }
 
     function CalendarSelected() {
-    $('#calendarframe').src = "";
-     $('#calendarframe').hide()
-      $('#calendarframe').src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
-        $('#calendarframe').show()
+   $('#calendarframe').show()
     }
 
-    function HideCalendarSelectedForm() {
-        $('#calendarframe').hide()
-    }
 
     function MoverSelected() {
-        $('#Add-To-Job-iFrame').show()
-        $('#AddToJobDiv').html('<a href="#b" onclick=HideMoverSelectedForm(); id="anchor1">HIDE Add-To-Job Form...</a>')
+        $('#addmoverframe').show()
+     var elem = document.getElementById("addmoverframe");
+                elem.scrollIntoView();
     }
 
     function HideMoverSelectedForm() {
@@ -46,21 +47,16 @@
         $('#AddToJobDiv').html('<a href="#c" onclick=MoverSelected();  id="anchor1">Show Add-To-Job Form...</a>')
     }    
    
-    function showDialog() {
-        const windowFeatures = "left=100,top=100,width=420,height=400";
-const handle = window.open(  "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/form-embed/Add_Mover_To_Job/u134bzgeFfhZv9tBFmmRGNaCJ7WWJFZSM9PeASXDvu1w8xgzBG42hzSmH9z6kWZePWjFE3QKKv7nyBJXYZuG36R3DUksybOsuYQt","Add Mover", windowFeatures);
-}
 </script>
 
 </head>
 
 <body>
 
-<div id="collection-63bddf8754bcf125af7b8518"></div>
 <div data-role="navbar" data-grid="d">
     <ul>
         <li><a href="javascript:CalendarSelected()">Calendar</a></li>
-        <li><a href="javascript:showDialog()">Add Mover to Job</a></li>
+        <li><a href="javascript:MoverSelected()">Add Mover to Job</a></li>
     </ul>
 </div><!-- /navbar -->
 
