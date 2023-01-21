@@ -2,7 +2,7 @@
 
 <head>
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
-<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title></title>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -10,54 +10,60 @@
 
 <script>
 
-    $(document).ready(foc);
-    function foc() {
- 
-     const iframe0 = document.createElement("iframe");
-        iframe0.id = 'calendarframe';
-        iframe0.width = '100%';
-        iframe0.height = '750px';
-        iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
-        document.body.appendChild(iframe0);
-        $('#calendarframe').hide()
-     
-      const iframe1 = document.createElement("iframe");
-        iframe1.id = 'addmoverframe';
-        iframe1.width = '100%';
-        iframe1.height = '350px';
-        iframe1.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/form-embed/Add_Mover_To_Job/u134bzgeFfhZv9tBFmmRGNaCJ7WWJFZSM9PeASXDvu1w8xgzBG42hzSmH9z6kWZePWjFE3QKKv7nyBJXYZuG36R3DUksybOsuYQt";
-        document.body.appendChild(iframe1);
-        $('#addmoverframe').hide()
-        
-        }
+$(document).ready(foc);
+function foc()
+{
+   $('#addmoverdialog').dialog(
+   {
+      autoOpen : false,
+      modal :  true,
+      width : '100%'
+   }
+   );
 
-    function CalendarSelected() {
+   const iframe0 = document.createElement("iframe");
+   iframe0.id = 'calendarframe';
+   iframe0.width = '100%';
+   iframe0.height = '750px';
+   iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
+   document.body.appendChild(iframe0);
+   $('#calendarframe').hide()
+
+   const iframe1 = document.createElement("iframe");
+   iframe1.id = 'addmoverframe';
+   iframe1.width = '100%';
+   iframe1.height = '400px';
+   iframe1.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/form-embed/Add_Mover_To_Job/u134bzgeFfhZv9tBFmmRGNaCJ7WWJFZSM9PeASXDvu1w8xgzBG42hzSmH9z6kWZePWjFE3QKKv7nyBJXYZuG36R3DUksybOsuYQt";
+   //document.body.appendChild(iframe1);
+  // $('#addmoverframe').hide()
+  $('#addmoverdialog').append(iframe1)
+
+}
+
+function CalendarSelected()
+{
    $('#calendarframe').show()
-    }
+}
 
 
-    function MoverSelected() {
-        $('#addmoverframe').show()
-     var elem = document.getElementById("addmoverframe");
-                elem.scrollIntoView();
-    }
+function MoverSelected()
+{
+  // $('#addmoverframe').show()
+   $('#addmoverdialog').dialog('open');
+   var elem = document.getElementById("addmoverframe");
+   elem.scrollIntoView();
+}
 
-    function HideMoverSelectedForm() {
-        $('#Add-To-Job-iFrame').hide()
-        $('#AddToJobDiv').html('<a href="#c" onclick=MoverSelected();  id="anchor1">Show Add-To-Job Form...</a>')
-    }    
-   
 </script>
 
 </head>
 
 <body>
 
-<div data-role="navbar" data-grid="d">
-    <ul>
-        <li><a href="javascript:CalendarSelected()">Calendar</a></li>
-        <li><a href="javascript:MoverSelected()">Add Mover to Job</a></li>
-    </ul>
-</div><!-- /navbar -->
+<div>
+    <button id="calendarbutton" onclick="CalendarSelected()">Show Calendar</button>
+    <button id="addmoverbutton" onclick="MoverSelected()">Add Mover to Job</button>     
+</div>
 
+<div id="addmoverdialog"></div>
 </body>
