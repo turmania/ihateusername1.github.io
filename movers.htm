@@ -1,6 +1,72 @@
 <html>
 
 <head>
+<style>
+body{
+  font-family: 'Noto Sans', sans-serif;
+	margin:0;
+	width:100%;
+	height:100vh;
+  	background:#ffffff;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+header{
+	width:100%; 
+	background:#0C419A; 
+	height:60px; 
+	line-height:60px;
+	border-bottom:1px solid #dddddd;
+}
+.hamburger{
+  background:none;
+  position:absolute;
+  top:0;
+  right:0;
+  line-height:45px;
+  padding:5px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+.cross{
+  background:none;
+  position:absolute;
+  top:0px;
+  right:0;
+  padding:7px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:3em;
+  line-height:65px;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+.menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:33%; background:#0C419A;  position:absolute; text-align:center; font-size:12px; right : 0px ;}
+.menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
+.menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+.menu li:hover{display: block;    background:#0C419A; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+.menu ul li a { text-decoration:none;  margin: 0px; color:white;}
+.menu ul li a:hover {  color: #666; text-decoration:none;}
+.menu a{text-decoration:none; color:white;}
+.menu a:hover{text-decoration:none; color:#666;}
+
+.glyphicon-home{
+  color:white; 
+  font-size:1.5em; 
+  margin-top:5px; 
+  margin:0 auto;
+}
+header{display:inline-block; font-size:12px; color:white}
+span{padding-left:20px;}
+a{color:#336699;}
+</style>
  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -13,6 +79,26 @@
 $(document).ready(foc);
 function foc()
 {
+
+$( ".cross" ).hide();
+$( ".menu" ).hide();
+$( ".hamburger" ).click(function() {
+$( ".menu" ).slideToggle( "fast", function() {
+$( ".hamburger" ).hide();
+$( ".cross" ).show();
+});
+});
+
+$( ".cross" ).click(function() {
+$( ".menu" ).slideToggle( "fast", function() {
+$( ".cross" ).hide();
+$( ".hamburger" ).show();
+});
+});
+
+
+
+
    $('#addmoverdialog').dialog(
    {
       autoOpen : false,
@@ -35,10 +121,29 @@ function foc()
 
 }
 
+function HomeSelected(){
+$( ".menu" ).slideToggle( "fast", function() {
+$( ".cross" ).hide();
+$( ".hamburger" ).show();})
+
+
+
+$('#imgholderdiv').show();
+$('#calendarframe').remove();
+
+}
+
+
 function CalendarSelected()
 {
+
+$( ".menu" ).slideToggle( "fast", function() {
+$( ".cross" ).hide();
+$( ".hamburger" ).show();
+});
     $('#calendarframe').remove()
     const iframe0 = document.createElement("iframe");
+    iframe0.style = 'border:none';
     iframe0.id = 'calendarframe';
     iframe0.width = '100%';
     iframe0.height = '750px';
@@ -50,6 +155,11 @@ function CalendarSelected()
 
 function MoverSelected()
 {
+
+$( ".menu" ).slideToggle( "fast", function() {
+$( ".cross" ).hide();
+$( ".hamburger" ).show();
+});
    $('#addmoverdialog').dialog('open');
    var elem = document.getElementById("addmoverframe");
    elem.scrollIntoView();
@@ -60,11 +170,28 @@ function MoverSelected()
 </head>
 
 <body>
+<header>
+	<span>Metroplex Moving Services: MOVERS</span>
+	<button class="hamburger">&#9776;</button>
+	<button class="cross">&#735;</button>
+</header>
 
-<div>
-    <button id="calendarbutton" onclick="CalendarSelected()">Show Calendar</button>
-    <button id="addmoverbutton" onclick="MoverSelected()">Add Mover to Job</button>     
+
+<div class="menu">
+	<ul>
+	<a href="javascript:HomeSelected();">
+			<li>Movers HOME</li>
+		</a>
+		<a href="javascript:CalendarSelected();">
+			<li>Job Calendar</li>
+		</a>
+		<a href="javascript:MoverSelected();">
+			<li>Add Mover to Job</li>
+		</a>
+	</ul>
 </div>
+
+
 <div id='imgholderdiv'><img id="splash" src="https://images.squarespace-cdn.com/content/v1/5ae8afd73917ee3150d25ec8/a9dc2415-e7d7-4e32-b6dc-9f810d0edbb7/image-asset.jpeg?format=300w" width="400" style="display: flex;justify-content: center;padding-top:100px;" ></img></div>
 
 <div id="addmoverdialog" style="padding-left:0px;padding-right:0px;"></div>
