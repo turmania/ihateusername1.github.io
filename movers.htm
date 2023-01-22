@@ -74,9 +74,11 @@ a{color:#336699;}
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
 
+
 <script>
 
 $(document).ready(foc);
+
 function foc()
 {
 
@@ -136,6 +138,12 @@ $('#calendarframe').remove();
 
 function CalendarSelected()
 {
+$.LoadingOverlay("show", {
+imageColor: "#0C419a",
+imageAnimation: "8000ms pulse"});
+setTimeout(function(){
+   $.LoadingOverlay("hide");
+}, 2000);
 
 $( ".menu" ).slideToggle( "fast", function() {
 $( ".cross" ).hide();
@@ -150,6 +158,7 @@ $( ".hamburger" ).show();
     document.body.appendChild(iframe0);
     iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
    $('#imgholderdiv').hide()
+   
 }
 
 
@@ -166,7 +175,7 @@ $( ".hamburger" ).show();
 }
 
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" integrity="sha256-jLFv9iIrIbqKULHpqp/jmePDqi989pKXOcOht3zgRcw=" crossorigin="anonymous"></script>
 </head>
 
 <body>
