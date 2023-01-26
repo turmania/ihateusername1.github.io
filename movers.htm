@@ -12,9 +12,9 @@ body{
 	-moz-osx-font-smoothing: grayscale;
 }
 header{
-	width:100%; 
-	background:#0C419A; 
-	height:60px; 
+	width:100%;
+	background:#0C419A;
+	height:60px;
 	line-height:60px;
 	border-bottom:1px solid #dddddd;
 }
@@ -58,9 +58,9 @@ header{
 .menu a:hover{text-decoration:none; color:#666;}
 
 .glyphicon-home{
-  color:white; 
-  font-size:1.5em; 
-  margin-top:5px; 
+  color:white;
+  font-size:1.5em;
+  margin-top:5px;
   margin:0 auto;
 }
 header{display:inline-block; font-size:12px; color:white}
@@ -82,21 +82,29 @@ $(document).ready(foc);
 function foc()
 {
 
-$( ".cross" ).hide();
-$( ".menu" ).hide();
-$( ".hamburger" ).click(function() {
-$( ".menu" ).slideToggle( "fast", function() {
-$( ".hamburger" ).hide();
-$( ".cross" ).show();
-});
-});
+   $( ".cross" ).hide();
+   $( ".menu" ).hide();
+   $( ".hamburger" ).click(function()
+   {
+      $( ".menu" ).slideToggle( "fast", function()
+      {
+         $( ".hamburger" ).hide();
+         $( ".cross" ).show();
+      }
+      );
+   }
+   );
 
-$( ".cross" ).click(function() {
-$( ".menu" ).slideToggle( "fast", function() {
-$( ".cross" ).hide();
-$( ".hamburger" ).show();
-});
-});
+   $( ".cross" ).click(function()
+   {
+      $( ".menu" ).slideToggle( "fast", function()
+      {
+         $( ".cross" ).hide();
+         $( ".hamburger" ).show();
+      }
+      );
+   }
+   );
 
 
 
@@ -111,7 +119,7 @@ $( ".hamburger" ).show();
    }
    );
 
-  
+
    const iframe1 = document.createElement("iframe");
    iframe1.id = 'addmoverframe';
    iframe1.width = '100%';
@@ -119,63 +127,138 @@ $( ".hamburger" ).show();
    iframe1.style = 'border:none';
    iframe1.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/form-embed/Add_Mover_To_Job/YzDb6zKyWmTs6UuEkSjWefjZNV36TEDmhz6dTBJ9hp05s1xXpKT78jdEpxM0UQKzsUwTRux7ZgUjRZuBBm9NOaaEKATtWGYQBESq";
 
-  $('#addmoverdialog').append(iframe1)
+   $('#addmoverdialog').append(iframe1)
 
 }
 
-function HomeSelected(){
-$( ".menu" ).slideToggle( "fast", function() {
-$( ".cross" ).hide();
-$( ".hamburger" ).show();})
+function HomeSelected()
+{
+   $( ".menu" ).slideToggle( "fast", function()
+   {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+   }
+   )
 
 
 
-$('#imgholderdiv').show();
-$('#calendarframe').remove();
+   $('#imgholderdiv').show();
+   $('#calendarframe').remove();
+   $('#clockinframe').remove();
 
 }
 
 
 function CalendarSelected()
 {
-$.LoadingOverlay("show", {
-imageColor: "#0C419a",
-imageAnimation: "8000ms pulse"});
-setTimeout(function(){
-   $.LoadingOverlay("hide");
-}, 2000);
+   $('#clockinframe').remove();
+   $.LoadingOverlay("show",
+   {
+      imageColor : "#0C419a",
+      imageAnimation : "8000ms pulse"
+   }
+   );
+   setTimeout(function()
+   {
+      $.LoadingOverlay("hide");
+   }
+   , 2000);
 
-$( ".menu" ).slideToggle( "fast", function() {
-$( ".cross" ).hide();
-$( ".hamburger" ).show();
-});
-    $('#calendarframe').remove()
-    const iframe0 = document.createElement("iframe");
-    iframe0.style = 'border:none';
-    iframe0.id = 'calendarframe';
-    iframe0.width = '100%';
-    iframe0.height = '750px';
-    document.body.appendChild(iframe0);
-    iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
+   $( ".menu" ).slideToggle( "fast", function()
+   {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+   }
+   );
+   $('#calendarframe').remove()
+   const iframe0 = document.createElement("iframe");
+   iframe0.style = 'border:none';
+   iframe0.id = 'calendarframe';
+   iframe0.width = '100%';
+   iframe0.height = '750px';
+   document.body.appendChild(iframe0);
+   iframe0.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/report-embed/Current_Bookings/UVe6stDyTr0Ofd0v8d5YJhGDph0pBaGuBxAAXgnZSMXh6ZgYNTH7aQmQB3UR8G9hxwQ9w9wdeddG74rrA8H7V7TeWWVQtHP9jVzE";
    $('#imgholderdiv').hide()
-   
+
 }
 
 
 function MoverSelected()
 {
 
-$( ".menu" ).slideToggle( "fast", function() {
-$( ".cross" ).hide();
-$( ".hamburger" ).show();
-});
+   $( ".menu" ).slideToggle( "fast", function()
+   {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+   }
+   );
    $('#addmoverdialog').dialog('open');
    var elem = document.getElementById("addmoverframe");
    elem.scrollIntoView();
 }
 
+function ClockIn()
+{
+   $( ".menu" ).slideToggle( "fast", function()
+   {
+      $( ".cross" ).hide();
+      $( ".hamburger" ).show();
+   }
+   );
+
+   $('#addmoverdialog').dialog('close');
+   $('#imgholderdiv').hide();
+   $('#calendarframe').remove();
+const options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+   if (navigator.geolocation)
+   {
+      none = navigator.geolocation.getCurrentPosition(successLocation, error, options);
+   }
+   else
+   {
+      alert("Geolocation is not supported by this browser.");
+   }
+
+
+
+
+
+
+  
+
+}
+function successLocation(position){
+
+
+ const iframe2 = document.createElement("iframe");
+   iframe2.id = 'clockinframe';
+   iframe2.width = '100%';
+   iframe2.height = '499px';
+   iframe2.style = 'border:none';
+   iframe2.src = "https://creatorapp.zohopublic.com/information152/household-goods-moving-services/form-embed/CheckIn/8O7e3kdZNJF99mA14Gm2EgTfT5DX5YWVfr3jHy451sYFaxAdUDaudFwN86ub4fTN4qxrZHU9Ez1V5Om5zzGwq57Fs0RA9Mv8Db8j?CapturedIPAddress=127.0.0.1&Mover_Coordinates="+position.coords.latitude + ", " + position.coords.longitude;
+
+   document.body.appendChild(iframe2);
+}
+function error(){}
+
+
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js" integrity="sha256-jLFv9iIrIbqKULHpqp/jmePDqi989pKXOcOht3zgRcw=" crossorigin="anonymous"></script>
+<script>
+window.addEventListener('message', function(event)
+{
+   console.log("Message received from the child: " + event.data);
+   // Message received from child
+}
+);
+</script>
 </head>
 
 <body>
@@ -197,6 +280,7 @@ $( ".hamburger" ).show();
 		<a href="javascript:MoverSelected();">
 			<li>Add Mover to Job</li>
 		</a>
+		<a onclick="ClockIn()"><li>Clock In</li></a>
 	</ul>
 </div>
 
