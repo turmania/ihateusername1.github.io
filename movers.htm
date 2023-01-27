@@ -14,8 +14,8 @@ body{
 header{
 	width:100%;
 	background:#0C419A;
-	height:60px;
-	line-height:60px;
+	height:80px;
+	line-height:30px;
 	border-bottom:1px solid #dddddd;
 }
 .hamburger{
@@ -113,9 +113,10 @@ function foc()
    {
       autoOpen : false,
       modal :  true,
-      width : '100%',
+      width : '98%',
       height : '500',
-      title : 'Add Mover to Job'
+      title : 'Add Mover to Job',
+      closeText: "show"
    }
    );
 
@@ -193,8 +194,6 @@ function MoverSelected()
    }
    );
    $('#addmoverdialog').dialog('open');
-   var elem = document.getElementById("addmoverframe");
-   elem.scrollIntoView();
 }
 
 function ClockIn()
@@ -283,7 +282,7 @@ function error()
 
 <body>
 <header>
-	<span><a onclick="javascript:HomeSelected();" style="color: white;">Metroplex Moving Services: MOVERS</a></span>
+	<h3><span style="display: flex;justify-content: center;"><a onclick="javascript:HomeSelected();" style="color: white;">Metroplex Moving Services<br>MOVERS</a></span></h3>
 	<button class="hamburger">&#9776;</button>
 	<button class="cross">&#735;</button>
 </header>
@@ -305,7 +304,7 @@ function error()
 </div>
 
 
-<div id='imgholderdiv'><img id="splash" src="https://images.squarespace-cdn.com/content/v1/5ae8afd73917ee3150d25ec8/a9dc2415-e7d7-4e32-b6dc-9f810d0edbb7/image-asset.jpeg?format=300w" width="400" style="display: flex;justify-content: center;padding-top:100px;" ></img></div>
+<div id='imgholderdiv' style="display: flex;justify-content: center;padding-top:200px;"><img id="splash" src="https://images.squarespace-cdn.com/content/v1/5ae8afd73917ee3150d25ec8/a9dc2415-e7d7-4e32-b6dc-9f810d0edbb7/image-asset.jpeg?format=300w" width="300" ></img></div>
 
 <div id="addmoverdialog" style="padding-left:0px;padding-right:0px;"></div>
 </body>
